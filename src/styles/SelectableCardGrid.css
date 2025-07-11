@@ -1,0 +1,15 @@
+.scroll-container {
+    overflow-x: auto;
+    padding: 10px;
+    width: 100%;
+  }
+  
+  .card-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(2, auto);
+    gap: 12px;
+    min-height: 160px;
+    padding-bottom: 10px;
+  }
+  
