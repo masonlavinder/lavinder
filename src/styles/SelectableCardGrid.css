@@ -1,15 +1,24 @@
 .scroll-container {
     overflow-x: auto;
-    padding: 10px;
     width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    margin-left: 40px; /* Adjusted for better alignment */
   }
   
   .card-grid {
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-rows: repeat(2, auto);
-    gap: 12px;
-    min-height: 160px;
-    padding-bottom: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-width: 150%; /* Force horizontal overflow */
+  }
+  
+  .card-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-shrink: 0; /* Prevents columns from shrinking */
+    width: 310px; /* Set a fixed width for each column */
   }
   

@@ -1,11 +1,10 @@
 .selectable-card {
-    width: 250px;       /* Fixed width */
+    width: 310px;       /* Fixed width */
     height: 150px;      /* Fixed height */
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 12px;
     padding: 12px 16px;
-    margin: 4px;
     text-align: center;
     background-color: white;
     color: black;
