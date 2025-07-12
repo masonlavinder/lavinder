@@ -29,9 +29,15 @@ const BottomBar: React.FC<BottomBarProps> = ({ onClick }) => {
     return (
     <div className="bottom-bar-wrapper">
       <div className="bottom-bar">
-        <button className="circle-button" onClick={() => console.log('Left clicked')} />
+        <button 
+            className="circle-button" 
+            onClick={() => console.log('Left clicked')} >
+                Wii
+        </button>
         <span className="time-text">{currentTime}</span>
-        <button className="circle-button" onClick={() => console.log('Right clicked')} />
+        <button 
+            className="circle-button" 
+            onClick={() => console.log('Right clicked')} />
       </div>
     </div>
   );
