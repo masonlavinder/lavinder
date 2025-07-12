@@ -1,14 +1,11 @@
-import React, { forwardRef, useState } from 'react';
+import { forwardRef, useState } from 'react';
 import SelectableCard from './SelectableCard';
 import '../styles/SelectableCardGrid.css';
+import {PostData} from '../utils/postGrabber'; 
 
-interface CardItem {
-  id: string;
-  label: string;
-}
 
 interface SelectableCardGridProps {
-  items: CardItem[];
+  items: PostData[];
 }
 
 const chunkArray = <T,>(array: T[], size: number): T[][] => {
@@ -42,7 +39,7 @@ const SelectableCardGrid = forwardRef<HTMLDivElement, SelectableCardGridProps>((
                 selected={selectedIds.has(item.id)}
                 onClick={() => toggleSelect(item.id)}
               >
-                {item.label}
+                {item.title}
               </SelectableCard>
             ))}
           </div>

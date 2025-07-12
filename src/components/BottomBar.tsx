@@ -22,7 +22,7 @@ const BottomBar: React.FC<BottomBarProps> = ({ onClick }) => {
     useEffect(() => {
         const timer = setInterval(() => {
         setCurrentTime(formatTime(new Date()));
-        }, 1000); // Update every second
+        }, 30000); // Update every 30 seconds
         return () => clearInterval(timer); // Cleanup on unmount
     }, []);
   
