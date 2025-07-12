@@ -4,11 +4,12 @@
     position: fixed; /* or 'relative' if you don't want it pinned */
     bottom: 0;
     left: 0;
-    background-color: #fff;
+    background-color: var(--light-gray);
     border-top: 1px solid #ddd;
     padding: 20px 100px;
     box-sizing: border-box;
     z-index: 100;
+    border-top: 2px solid var(--blue);
   }
   
   .bottom-bar {
@@ -19,19 +20,43 @@
   }
   
   .circle-button {
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    border: 2px solid #007bff;
-    background-color: rgb(214, 83, 83);
+    border: 2px solid var(--blue);
+    background-color: var(--light-gray);
     cursor: pointer;
     transition: background-color 0.2s ease;
-    padding: 40px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+                0 15px 35px rgba(20, 19, 19, 0.4),
+                0 5px 15px rgba(0, 0, 0, 0.1),
+                inset 0 4px 0 rgba(255, 255, 255, 0.2),
+                inset 0 -4px 0 rgba(0, 0, 0, 0.1);
   }
   
   .circle-button:hover {
-    background-color: #007bff;
-    color: white;
+    border: 3px solid var(--blue);
+    transform: translateY(-3px) scale(1.05);
+            box-shadow: 
+                0 20px 40px rgba(19, 18, 18, 0.5),
+                0 8px 25px rgba(0, 0, 0, 0.15),
+                inset 0 4px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -4px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .circle-button:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+  .mail-button {
+    translate: -0% -0%;
+  }
+
+  .wii-button {
+    font-size: 24px;
+    color: var(--black);
   }
   
   .time-text {

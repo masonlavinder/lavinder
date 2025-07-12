@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/BottomBar.css'; // Use BottomBar-specific styles if preferred
 import { useEffect, useState } from 'react';
+import Mail from '../assets/mail.svg';
 
 interface BottomBarProps {
   onClick: () => void;
@@ -32,12 +33,14 @@ const BottomBar: React.FC<BottomBarProps> = ({ onClick }) => {
         <button 
             className="circle-button" 
             onClick={() => console.log('Left clicked')} >
-                Wii
+                <div className="wii-button">Wii</div>
         </button>
         <span className="time-text">{currentTime}</span>
         <button 
             className="circle-button" 
-            onClick={() => console.log('Right clicked')} />
+            onClick={() => console.log('Right clicked')}>
+                <img className = "mail-button" src={Mail}  />
+            </button>
       </div>
     </div>
   );

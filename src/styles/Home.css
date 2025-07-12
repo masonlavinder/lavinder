@@ -30,12 +30,8 @@
     position: fixed; /* Ensures the element stays in place */
     bottom: 50%; /* Distance from the bottom of the viewport */
     right: 20px; /* Distance from the right of the viewport */
-    background-color: null; /* Transparent background */
     padding: 10px 15px; /* Padding for the element */
-    border-radius: 5px; /* Rounded corners */
     cursor: pointer; /* Pointer cursor for interactivity */
-    border-radius: 10px;
-    transition: background-color 0.1s ease-in-out; /* Smooth color transition */
     z-index: 1000; /* Ensures the element is on top of other content */
   }
 
@@ -44,9 +40,6 @@
     bottom: 50%; /* Distance from the bottom of the viewport */
     left: 20px; /* Distance from the right of the viewport */
     padding: 10px 15px; /* Padding for the element */
-    border-radius: 5px; /* Rounded corners */
     cursor: pointer; /* Pointer cursor for interactivity */
-    border-radius: 10px;
-    transition: background-color 0.1s ease-in-out; /* Smooth color transition */
     z-index: 1000; /* Ensures the element is on top of other content */
   }

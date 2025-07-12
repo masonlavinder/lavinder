@@ -90,6 +90,7 @@ const SelectableCardGrid = forwardRef<HTMLDivElement, SelectableCardGridProps>((
                 key={item.id}
                 selected={selectedIds.has(item.id)}
                 onClick={() => handleCardClick(item)}
+                className={item.title === 'Wii' ? 'selectable-card-grey' : 'selectable-card'}
               >
                 {item.title}
               </SelectableCard>

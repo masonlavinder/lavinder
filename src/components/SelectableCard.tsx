@@ -12,12 +12,13 @@ const SelectableCard: React.FC<SelectableCardProps> = ({
   selected,
   onClick,
   children,
-  className = '',
+  className,
 }) => {
+    console.log('SelectableCard rendered', { selected, className });
   return (
     <div
       onClick={onClick}
-      className={`selectable-card ${selected ? 'selected' : ''} ${className}`}
+      className={className}
     >
       {children}
     </div>
