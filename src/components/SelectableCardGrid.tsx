@@ -2,7 +2,7 @@ import { forwardRef, useState } from 'react';
 import SelectableCard from './SelectableCard';
 import '../styles/SelectableCardGrid.css';
 import {PostData} from '../utils/postGrabber'; 
-
+import { useNavigate } from 'react-router-dom';
 
 interface SelectableCardGridProps {
   items: PostData[];
@@ -19,14 +19,18 @@ const chunkArray = <T,>(array: T[], size: number): T[][] => {
 const SelectableCardGrid = forwardRef<HTMLDivElement, SelectableCardGridProps>(({ items }, ref) => {
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const columns = chunkArray(items, 3);
+    const navigate = useNavigate();
 
-  const toggleSelect = (id: string) => {
-    setSelectedIds(prev => {
-      const newSet = new Set(prev);
-      newSet.has(id) ? newSet.delete(id) : newSet.add(id);
-      return newSet;
-    });
-  };
+    const handleCardClick = (post: PostData) => {
+        if (post.type === 'page') {
+          // Navigate to specific pages
+          navigate(`/${post.slug}`);
+        } else {
+          // Navigate to blog posts
+          console.log('Navigating to post:', post);
+          navigate(`/post/${post.slug}`, {state:post});
+        }
+      };
 
   return (
     <div className="scroll-container" ref={ref}>
@@ -37,7 +41,7 @@ const SelectableCardGrid = forwardRef<HTMLDivElement, SelectableCardGridProps>((
               <SelectableCard
                 key={item.id}
                 selected={selectedIds.has(item.id)}
-                onClick={() => toggleSelect(item.id)}
+                onClick={()=>handleCardClick(item)}
               >
                 {item.title}
               </SelectableCard>

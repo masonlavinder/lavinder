@@ -2,5 +2,6 @@
     "id":2,
     "title":"second post",
     "subtitle":"second post subtitle",
-    "content":"This is the content of the second post."
+    "content":"This is the content of the second post.",
+    "slug":"second-post"
 }

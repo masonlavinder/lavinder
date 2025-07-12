@@ -14,6 +14,7 @@ const Home: React.FC = () => {
   const [scrollClicks, setScrollClicks] = React.useState(0);
   const { data: jsonData, loading, error } = useJsonGrabber(postPath);
     console.log('jsonData', jsonData);
+
   const goToAbout = () => {
     navigate('/about');
   };
@@ -32,6 +33,7 @@ const Home: React.FC = () => {
         }
     };
 
+    
   return (
     <div className="home-wrapper">
       <div >
