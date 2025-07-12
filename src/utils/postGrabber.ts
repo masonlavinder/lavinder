@@ -4,9 +4,9 @@ export interface PostData {
   id: string;
   title: string;
   subtitle?: string;
-  content: string;
-  // Add other properties based on your JSON structure
-  [key: string]: any;
+  content?: string;
+  type?: string; 
+  slug?: string; 
 }
 
 export interface PostGrabberProps {

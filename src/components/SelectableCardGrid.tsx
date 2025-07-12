@@ -1,8 +1,9 @@
 import { forwardRef, useState } from 'react';
 import SelectableCard from './SelectableCard';
 import '../styles/SelectableCardGrid.css';
-import {PostData} from '../utils/postGrabber'; 
+import {PostData} from '../utils/postGrabber';
 import { useNavigate } from 'react-router-dom';
+import Post from '../pages/Post';
 
 interface SelectableCardGridProps {
   items: PostData[];
@@ -18,19 +19,33 @@ const chunkArray = <T,>(array: T[], size: number): T[][] => {
 
 const SelectableCardGrid = forwardRef<HTMLDivElement, SelectableCardGridProps>(({ items }, ref) => {
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
-  const columns = chunkArray(items, 3);
-    const navigate = useNavigate();
+  
+  const aboutPage = {
+    id: 'about',
+    title: 'About',
+    slug: 'about',
+    type: 'page'
+  } as PostData;
+  
+  // Add the about page in the first position
+  const itemsWithAbout = [
+    aboutPage,
+    ...items
+  ];
+  
+  const columns = chunkArray(itemsWithAbout, 3);
+  const navigate = useNavigate();
 
-    const handleCardClick = (post: PostData) => {
-        if (post.type === 'page') {
-          // Navigate to specific pages
-          navigate(`/${post.slug}`);
-        } else {
-          // Navigate to blog posts
-          console.log('Navigating to post:', post);
-          navigate(`/post/${post.slug}`, {state:post});
-        }
-      };
+  const handleCardClick = (post: PostData) => {
+    if (post.type === 'page') {
+      // Navigate to specific pages
+      navigate(`/${post.slug}`);
+    } else {
+      // Navigate to blog posts
+      console.log('Navigating to post:', post);
+      navigate(`/post/${post.slug}`, {state:post});
+    }
+  };
 
   return (
     <div className="scroll-container" ref={ref}>
