@@ -46,7 +46,7 @@ But there was a time when websites were just served up. I made this site like th
 
 One of the core features I wanted was a simple blog without needing a CMS or database. Here's how I made it work:
 
-**Markdown as Content:** Every blog post is just a markdown file in the `public/posts/` directory. Each file has front matter (metadata) at the top:
+**Markdown as Content:** Every blog post is just a markdown file in the `src/posts/` directory, auto-discovered at build time via Vite's `import.meta.glob`. Each file has front matter (metadata) at the top:
 
 ```markdown
 ---
@@ -61,7 +61,7 @@ excerpt: "Building a personal site..."
 ---
 ```
 
-**Dynamic Loading:** I wrote a blog service that fetches markdown files, parses the front matter using the `gray-matter` library, and renders the content with React Markdown. The beauty of this approach is that adding a new post is as simple as dropping a markdown file in a folder.
+**Dynamic Loading:** I wrote a blog service that imports markdown files as raw strings, parses the front matter using the `gray-matter` library, and renders the content with React Markdown. The beauty of this approach is that adding a new post is as simple as dropping a markdown file in a folder.
 
 **Features I Added:**
 - Search by title, excerpt, or content

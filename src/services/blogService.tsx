@@ -2,7 +2,7 @@
 import matter from 'gray-matter';
 import { BlogPost, BlogPostSummary, BlogPostFrontmatter } from '../types/blog';
 import { Buffer } from 'buffer';
-import { postFiles } from '../utils/postFiles'; // Assuming you have a file that exports the list of post filenames
+import { posts as rawPosts } from '../utils/postFiles';
 
 declare global {
   interface Window {
@@ -30,23 +30,11 @@ class BlogService {
     if (this.postsLoaded) return;
 
     try {
-      
       const loadedPosts: BlogPost[] = [];
 
-      for (const filename of postFiles) {
+      for (const { filename, raw } of rawPosts) {
         try {
-          const url = `${import.meta.env.BASE_URL}posts/${filename}`;
-          console.log(`Fetching post from: ${url}`);
-          const response = await fetch(url);
-
-          if (!response.ok) {
-            console.error(`Failed to fetch ${filename}: ${response.status} ${response.statusText}`);
-            continue;
-          }
-
-          const markdownContent = await response.text();
-          const { data, content } = matter(markdownContent);
-
+          const { data, content } = matter(raw);
           const frontmatter = data as BlogPostFrontmatter;
           const readingTime = this.calculateReadingTime(content);
 
@@ -54,16 +42,15 @@ class BlogService {
             ...frontmatter,
             content,
             readingTime,
-            filename
+            filename,
           });
-          console.log(`Successfully loaded post: ${frontmatter.title}`);
         } catch (error) {
-          console.error(`Failed to load post ${filename}:`, error);
+          console.error(`Failed to parse post ${filename}:`, error);
         }
       }
 
       // Sort by publish date (newest first)
-      this.posts = loadedPosts.sort((a, b) => 
+      this.posts = loadedPosts.sort((a, b) =>
         new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
       );
 

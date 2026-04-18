@@ -1,17 +1,19 @@
-// config/posts-config.ts
-// List of post files - add new posts here
-// TODO: This could be automated with a build script if needed
-export const postFiles = [
-    'post-1.md',
-    'post-2.md',
-];
+const postModules = import.meta.glob('../posts/*.md', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+}) as Record<string, string>;
 
-// Helper to get slug from filename
+export const posts: { filename: string; raw: string }[] = Object.entries(postModules)
+  .map(([path, raw]) => ({
+    filename: path.split('/').pop() as string,
+    raw,
+  }));
+
 export const getSlugFromFilename = (filename: string): string => {
   return filename.replace(/^\//, '').replace(/\.md$/, '');
 };
 
-// Helper to get filename from slug
 export const getFilenameFromSlug = (slug: string): string => {
-  return `/${slug}.md`;
+  return `${slug}.md`;
 };

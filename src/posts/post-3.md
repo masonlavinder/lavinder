@@ -11,9 +11,11 @@ excerpt: "I built a blog engine from scratch for this site. A few months later I
 
 # How I Accidentally Remade Docusaurus
 
-I built a blog engine from scratch for this site. A few months later I installed Docusaurus for a work project and realized I'd accidentally rebuilt it.
+I built a blog engine from scratch for this site. A few months later I installed [Docusaurus](https://docusaurus.io/) for a work project and realized I'd accidentally rebuilt it.
 
 Here's how it happened.
+
+## Building It Myself
 
 I wanted a spot for a few musings, a home page, and the typical things to tell a little about me. I said hey, I want to render markdown files to a blog list and be able to have things like tags to help people navigate. Well, I did just that.
 
@@ -38,17 +40,21 @@ I thought this was smart. I know I could serve them from an S3 bucket and optimi
 
 That went great. I rendered the files when selected using React Markdown, which is lightweight enough considering the stack was simple.
 
+## Enter Docusaurus
+
 Well, a few months later, I needed to create a docs site for the product at Third Loop. It needed standard documentation and maybe some articles. Docusaurus came up as reputable and hosting seemed simple. I made the site in an afternoon and before you know it I was up and running with git pages.
 
 Well then I realized I was an idiot.
 
 I built this myself. Sure, Docusaurus has some bells and whistles. But it's a way to create the super simple blog-like pages. It's funny how problems are rarely unique.
 
+## The Takeaways
+
 Well, my big takeaway was not to port this to Docusaurus. In fact, I like the way I did it for this site. But I think the real moral of the story is two-fold:
 
-For your personal project and life stuff, sometimes you should just do it yourself. You'll learn something if nothing else. Plus I think the bias towards inaction can slow you down if you take hours looking for the perfect solution. The worst thing that happens is you learn how the "better" version works.
+**For personal projects, just do it yourself.** You'll learn something if nothing else. The bias towards inaction can slow you down if you take hours looking for the perfect solution. The worst thing that happens is you learn how the "better" version works.
 
-For work projects, the open source community is the backbone of modern technology and thus society these days. It's wild to think how much of what we build sits on top of work that people do for free.
+**For work projects, lean on open source.** The open source community is the backbone of modern technology and thus society these days. It's wild to think how much of what we build sits on top of work that people do for free.
 
 Docusaurus is a simple example of open source software making a difference, but the larger takeaway is how much open source software is out there. You can solve SO many problems with it. The world doesn't run without it.
 
