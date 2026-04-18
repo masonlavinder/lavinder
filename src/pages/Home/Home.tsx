@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { GitHubCalendar } from 'react-github-calendar';
 import styles from './Home.module.css';
 import { returnComputerImage } from '../../components/ComputerImage.tsx';
 import { blogService } from '../../services/blogService';
+import { githubService } from '../../services/githubService';
+import { letterboxdService } from '../../services/letterboxdService';
 import { BlogPostSummary } from '../../types/blog';
+import { PinnedRepo } from '../../types/github';
+import { RecentWatch } from '../../types/letterboxd';
 
 const Home: React.FC = () => {
   const [recentPosts, setRecentPosts] = useState<BlogPostSummary[]>([]);
+  const [pinnedRepos, setPinnedRepos] = useState<PinnedRepo[]>([]);
+  const [recentFilms, setRecentFilms] = useState<RecentWatch[]>([]);
 
   useEffect(() => {
     const fetchRecentPosts = async () => {
@@ -18,7 +25,27 @@ const Home: React.FC = () => {
       }
     };
 
+    const fetchPinnedRepos = async () => {
+      try {
+        const repos = await githubService.getPinnedRepos('masonlavinder');
+        setPinnedRepos(repos);
+      } catch (error) {
+        console.error('Error fetching pinned repos:', error);
+      }
+    };
+
+    const fetchRecentFilms = async () => {
+      try {
+        const films = await letterboxdService.getRecentWatches('masonlav');
+        setRecentFilms(films.slice(0, 4));
+      } catch (error) {
+        console.error('Error fetching recent films:', error);
+      }
+    };
+
     fetchRecentPosts();
+    fetchPinnedRepos();
+    fetchRecentFilms();
   }, []);
 
   return (
@@ -95,6 +122,95 @@ const Home: React.FC = () => {
                                 Letterboxd
                             </a>
                         </div>
+                    </div>
+                    {/* <div className={styles.contentBubble}>
+                        <h1>GitHub Activity</h1>
+                        <div className={styles.githubCalendarContainer}>
+                            <GitHubCalendar
+                                username="masonlavinder"
+                                colorScheme="light"
+                                theme={{
+                                    light: ['#D4D9C0', '#A7B38A', '#8FA06A', '#6B7A4F', '#515B3A'],
+                                    dark: ['#D4D9C0', '#A7B38A', '#8FA06A', '#6B7A4F', '#515B3A'],
+                                }}
+                                fontSize={14}
+                            />
+                        </div>
+                        <img
+                            src="https://github-readme-stats.vercel.app/api/top-langs?username=masonlavinder&hide_border=true&bg_color=F6F3DF&title_color=515B3A&text_color=311E10&layout=compact"
+                            alt="Mason's top languages"
+                            className={styles.githubStatImage}
+                        />
+                    </div> */}
+                    <div className={styles.contentBubble}>
+                        <h1>Pinned Repos</h1>
+                        {pinnedRepos.length > 0 ? (
+                            <ul className={styles.pinnedRepoList}>
+                                {pinnedRepos.map((repo) => (
+                                    <li key={`${repo.owner}/${repo.repo}`} className={styles.pinnedRepoItem}>
+                                        <a
+                                            href={`https://github.com/${repo.owner}/${repo.repo}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className={styles.pinnedRepoLink}
+                                        >
+                                            <h3 className={styles.pinnedRepoTitle}>{repo.repo}</h3>
+                                            {repo.description && (
+                                                <p className={styles.pinnedRepoDescription}>{repo.description}</p>
+                                            )}
+                                            <div className={styles.pinnedRepoMeta}>
+                                                {repo.language && (
+                                                    <span className={styles.pinnedRepoLanguage}>
+                                                        <span
+                                                            className={styles.pinnedRepoLanguageDot}
+                                                            style={{ backgroundColor: repo.languageColor }}
+                                                        />
+                                                        {repo.language}
+                                                    </span>
+                                                )}
+                                                {repo.stars > 0 && (
+                                                    <span className={styles.pinnedRepoStat}>★ {repo.stars}</span>
+                                                )}
+                                                {repo.forks > 0 && (
+                                                    <span className={styles.pinnedRepoStat}>⑂ {repo.forks}</span>
+                                                )}
+                                            </div>
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <p>Loading pinned repos...</p>
+                        )}
+                    </div>
+                    <div className={styles.contentBubble}>
+                        <h1>Recent Films</h1>
+                        {recentFilms.length > 0 ? (
+                            <ul className={styles.recentFilmList}>
+                                {recentFilms.map((film) => (
+                                    <li key={film.link} className={styles.recentFilmItem}>
+                                        <a
+                                            href={film.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className={styles.recentFilmLink}
+                                        >
+                                            {film.poster && (
+                                                <img src={film.poster} alt="" className={styles.recentFilmPoster} />
+                                            )}
+                                            <div className={styles.recentFilmInfo}>
+                                                <h3 className={styles.recentFilmTitle}>{film.filmTitle}</h3>
+                                                {film.rating && (
+                                                    <p className={styles.recentFilmRating}>{film.rating}</p>
+                                                )}
+                                            </div>
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <p>Loading recent films...</p>
+                        )}
                     </div>
                     <div className={styles.contentBubble}>
                         <h1>Recent Blog</h1>

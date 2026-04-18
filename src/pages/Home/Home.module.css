@@ -438,6 +438,155 @@
         text-decoration: underline;
     }
 
+    .pinnedRepoList {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .pinnedRepoItem {
+        margin-bottom: var(--spacing-md);
+        background-color: var(--secondary-color);
+        border-radius: 8px;
+        padding: var(--spacing-md);
+        transition: all 0.2s ease;
+    }
+
+    .pinnedRepoItem:last-child {
+        margin-bottom: 0;
+    }
+
+    .pinnedRepoItem:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+    }
+
+    .pinnedRepoLink {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
+    .pinnedRepoTitle {
+        margin: 0 0 var(--spacing-xs) 0;
+        font-size: var(--font-base);
+        color: var(--text-dark);
+        font-weight: var(--font-weight-bold);
+    }
+
+    .pinnedRepoDescription {
+        margin: 0 0 var(--spacing-sm) 0;
+        font-size: var(--font-sm);
+        color: var(--text-dark);
+        opacity: 0.9;
+    }
+
+    .pinnedRepoMeta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+        font-size: var(--font-sm);
+        color: var(--text-dark);
+    }
+
+    .pinnedRepoLanguage {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+    }
+
+    .pinnedRepoLanguageDot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+    }
+
+    .pinnedRepoStat {
+        opacity: 0.9;
+    }
+
+    .pinnedRepoLink:hover .pinnedRepoTitle {
+        text-decoration: underline;
+    }
+
+    .githubCalendarContainer {
+        width: 100%;
+        overflow-x: auto;
+        margin-bottom: var(--spacing-md);
+        color: var(--text-dark);
+        font-family: var(--font-family);
+    }
+
+    .githubStatImage {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .recentFilmList {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .recentFilmItem {
+        margin-bottom: var(--spacing-md);
+        background-color: var(--secondary-color);
+        border-radius: 8px;
+        padding: var(--spacing-md);
+        transition: all 0.2s ease;
+    }
+
+    .recentFilmItem:last-child {
+        margin-bottom: 0;
+    }
+
+    .recentFilmItem:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+    }
+
+    .recentFilmLink {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        gap: var(--spacing-md);
+        align-items: center;
+    }
+
+    .recentFilmPoster {
+        width: 50px;
+        height: 75px;
+        object-fit: cover;
+        border-radius: 4px;
+        flex-shrink: 0;
+    }
+
+    .recentFilmInfo {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .recentFilmTitle {
+        margin: 0 0 var(--spacing-xs) 0;
+        font-size: var(--font-base);
+        color: var(--text-dark);
+        font-weight: var(--font-weight-bold);
+    }
+
+    .recentFilmRating {
+        margin: 0;
+        font-size: var(--font-sm);
+        color: var(--text-dark);
+        opacity: 0.9;
+    }
+
+    .recentFilmLink:hover .recentFilmTitle {
+        text-decoration: underline;
+    }
+
     .socialLinksContainer {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
