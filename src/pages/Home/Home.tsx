@@ -29,21 +29,21 @@ const Home: React.FC = () => {
                     <div className={styles.contentBubble}>
                         <div className={styles.contentVerticalSplit}>
                             <div className={styles.nameContainer}>
-                                <h1 className={styles.nameText}>mason</h1>
-                                <h1 className={styles.nameText}>lavinder</h1>
+                                <h1 className={styles.nameText}>Mason</h1>
+                                <h1 className={styles.nameText}>Lavinder</h1>
                             </div>
                             <div>{returnComputerImage()}</div>
                         </div>
                     </div>
                     <div className={styles.contentBubble}>
-                        <h1>about me</h1>
+                        <h1>About</h1>
                         <p>Welcome to my website! My name is Mason and I'm a full stack developer specializing in AI applications.</p>
                         <p>My career started with a degree in Aerospace Engineering from Virginia Tech, but I discovered my passion for data science through internships and my first job. That curiosity led me back to school, studying at night to earn my Master's in Data Analytics Engineering from George Mason University, where I studied data engineering, analytics, and AI.</p>
                         <p>When I first started at MPR, I worked on a variety of applications, from medical devices to nuclear reactor design, mostly focused around software and data engineering. During these projects, I realized the importance of software engineering to data and machine learning projects and spent time honing my skills, not just around analysis, but software at scale.</p>
                         <p>These days, I'm still at MPR Associates but I am focused on building practical AI solutions for the engineering world, working with technologies like RAG databases, React, Python, SQLAlchemy, AWS, and more to create tools that solve real problems.</p>
                     </div>
                     <div className={styles.contentBubble}>
-                        <h1>my tastes</h1>
+                        <h1>My Tastes</h1>
                         <h3>Computer </h3>
                         <p>I am a big Apple guy. BUT I also have learned the ways of Ubuntu. I work with a work-issued Dell with Ubuntu and an M1 iMac at home.</p>
                         <h3>Keyboard </h3>
@@ -68,7 +68,7 @@ const Home: React.FC = () => {
                 </div>
                 <div className={`${styles.contentRight} ${styles.contentColumn}`}>
                     <div className={styles.contentBubble}>
-                        <h1>where to find me</h1>
+                        <h1>Where to Find Me</h1>
                         <div className={styles.socialLinksContainer}>
                             <a
                                 href="https://www.linkedin.com/in/mason-lavinder/"
@@ -97,7 +97,7 @@ const Home: React.FC = () => {
                         </div>
                     </div>
                     <div className={styles.contentBubble}>
-                        <h1>recent blog</h1>
+                        <h1>Recent Blog</h1>
                         {recentPosts.length > 0 ? (
                             <ul className={styles.recentPostList}>
                                 {recentPosts.map((post) => (

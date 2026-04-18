@@ -24,7 +24,7 @@
     border-radius: 8px;
     background-color: var(--vanilla);
     color: var(--text-dark);
-    font-family: sans-serif;
+    font-family: var(--font-family);
     transition: all 0.2s ease;
     margin-bottom: var(--spacing-xl);
     box-sizing: border-box;
@@ -50,7 +50,7 @@
   .tagButton {
     padding: var(--spacing-sm) var(--spacing-md);
     font-size: var(--font-sm);
-    font-family: sans-serif;
+    font-family: var(--font-family);
     border: 2px solid var(--primary-color);
     border-radius: 20px;
     background-color: var(--vanilla);

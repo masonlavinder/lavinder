@@ -14,9 +14,9 @@ const App: React.FC = () => {
     <Router>
         <MenuBar
           items={[
-            { id: 'home', label: 'home', href: '/lavinder/' },
-            { id: 'blog', label: 'blog', href: '/lavinder/blog' },
-            { id: 'link-list', label: 'link list', href: '/lavinder/link-list '},
+            { id: 'home', label: 'Home', href: '/lavinder/' },
+            { id: 'blog', label: 'Blog', href: '/lavinder/blog' },
+            { id: 'link-list', label: 'Link List', href: '/lavinder/link-list '},
           ]}
         />
         <Routes>
