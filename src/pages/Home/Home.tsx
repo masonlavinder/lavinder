@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { GitHubCalendar } from 'react-github-calendar';
+// import { GitHubCalendar } from 'react-github-calendar';
 import styles from './Home.module.css';
 import { returnComputerImage } from '../../components/ComputerImage.tsx';
 import { blogService } from '../../services/blogService';
