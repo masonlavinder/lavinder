@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://masonlavinder.github.io/lavinder/sitemap.xml
+Sitemap: https://me.knurled.studio/sitemap.xml
