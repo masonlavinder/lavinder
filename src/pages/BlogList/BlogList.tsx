@@ -85,7 +85,7 @@ export const Blog: React.FC = () => {
           <ul className={styles.postList}>
     {filteredPosts.map((post) => (
       <li key={post.id} className={styles.postItem}>
-        <Link to={`/lavinder/blog/${post.slug}`} className={styles.postLink}>
+        <Link to={`/blog/${post.slug}`} className={styles.postLink}>
           <h2 className={styles.postTitle}>{post.title}</h2>
           <p className={styles.postExcerpt}>{post.excerpt}</p>
           <p className={styles.postDate}>{post.publishDate}</p>

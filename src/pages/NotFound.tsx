@@ -10,8 +10,8 @@ const NotFound: React.FC = () => {
         <>
             <MenuBar
                 items={[
-                    { id: 'home', label: 'Home', href: '/lavinder/' },
-                    { id: 'blog', label: 'Blog', href: '/lavinder/blog' },
+                    { id: 'home', label: 'Home', href: '/' },
+                    { id: 'blog', label: 'Blog', href: '/blog' },
                 ]}
             />
             <div className={styles.container}>
