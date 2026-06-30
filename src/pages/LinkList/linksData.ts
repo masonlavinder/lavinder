@@ -77,5 +77,12 @@ export const sampleLinks: Link[] = [
     url: 'https://code.visualstudio.com/',
     description: 'I am basic. I like VSCode.',
     categories: ['dev', 'tools']
+  },
+  {
+    id: '12',
+    title: "Bundlephobia",
+    url: "https://bundlephobia.com/",
+    description: "Bundlephobia helps you find the cost of adding a npm package to your bundle.",
+    categories: ["dev", "tools"]
   }
 ];
